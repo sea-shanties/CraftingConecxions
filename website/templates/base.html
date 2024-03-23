@@ -19,12 +19,12 @@
     </head>
     <body>
         <nav class ="navbar navbar-expand-lg navbar-dark bg-dark">
-            <button class = "navbar-toggle" type="button" data-toggle="collapse"data-target="#navbar">
+            <button
+              class = "navbar-toggle"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbar">
                 <span class = "navbar-toggler-icon">
-                    class="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbar"
                 </span>
             </button>
             <div class="collapse navbar-collpase" id = "navbar">
@@ -33,7 +33,7 @@
                     <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
                     <a class="nav-item nav-link" id="login" href="/login">Login</a>
                     <a class="nav-item nav-link" id="signUp" href="/sign-up">Sign Up</a>
-                </div>
+                </div> 
             </div>
         </nav>
         <script
@@ -54,7 +54,7 @@
 
         <script>
             type = "text/javascript"
-            src = "{{ url_for('static', filename='index.js'}}"
+            src = "{{ url_for('static', filename='index.js')}}"
         </script>
     </body>
 </html>
