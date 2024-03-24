@@ -1,10 +1,15 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User
-from . import db   ##means from __init__.py import db
+from . import db
 from flask_login import login_user, login_required, logout_user, current_user
 
 
 auth = Blueprint('auth', __name__)
+
+@auth.route('/home')
+def show_all():
+   users = db.query.all()
+   return render_template('home.html', users = users )
 
 
 @auth.route('/login', methods=['GET', 'POST'])
@@ -43,6 +48,9 @@ def sign_up():
         firstName = request.form.get('firstName')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
+        linkedin = request.form.get('linkedin')
+        major = request.form.get('major')
+        college=request.form.get('college')
 
         user = User.query.filter_by(email=email).first()
         if user:
@@ -56,7 +64,7 @@ def sign_up():
         elif len(password1) < 7:
             flash('Password must be at least 7 characters.', category='error')
         else:
-            new_user = User(email=email, first_name=firstName, password=password1)
+            new_user = User(email=email, first_name=firstName, password=password1,linkedin=linkedin, major=major, college=college)
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember=True)
