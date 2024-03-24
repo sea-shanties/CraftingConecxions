@@ -2,5 +2,32 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h1>This is the home page</h1>
+<h1>Results</h1>
+
+<h3>
+         <a href = "{{ url_for('auth.show_all') }}"></a>
+      </h3>
+
+ <table>
+  <tr>
+    <th>Name</th>
+    <th>LinkedIn</th>
+    <th>College</th>
+    <th>Major</th>
+  </tr>
+  <tr>
+      <td>Bob</td>
+      <td>www.linkedin.com/in/bob</td>
+      <td> UTD</td>
+      <td>Computer Engineering</td>
+  </tr>
+   <tr>
+      <td>Tina</td>
+      <td>www.linkedin.com/in/tina</td>
+      <td> UTD</td>
+      <td>Computer Engineering</td>
+  </tr>
+</table>
+
+
 {% endblock %}
